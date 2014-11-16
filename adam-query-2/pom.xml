@@ -26,7 +26,7 @@
               <resource>reference.conf</resource>
             </transformer>
           </transformers>
-          <finalName>query1</finalName>
+          <finalName>query2</finalName>
           <filters>
             <filter>
               <artifact>*:*</artifact>
