@@ -15,7 +15,7 @@
   <name>adam-queries: GDA queries on ADAM</name>
   
   <properties>
-    <adam.version>0.14.1-SNAPSHOT</adam.version>
+    <adam.version>0.15.1-SNAPSHOT</adam.version>
     <avro.version>1.7.6</avro.version>
     <java.version>1.7</java.version>
     <scala.version>2.10.3</scala.version>
@@ -28,6 +28,7 @@
   <modules>
     <module>adam-query-1</module>
     <module>adam-query-2</module>
+    <module>adam-query-3</module>
   </modules>
 
   <licenses>
@@ -180,6 +181,7 @@
         <groupId>org.apache.hadoop</groupId>
         <artifactId>hadoop-client</artifactId>
         <version>${hadoop.version}</version>
+        <scope>provided</scope>
         <exclusions>
           <exclusion>
             <groupId>asm</groupId>
@@ -222,6 +224,7 @@
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-core_${scala.version.prefix}</artifactId>
         <version>${spark.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.avro</groupId>
