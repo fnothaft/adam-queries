@@ -24,6 +24,7 @@ import org.apache.spark.rdd.RDD
 import org.bdgenomics.adam.algorithms.consensus._
 import org.bdgenomics.adam.cli._
 import org.bdgenomics.adam.models.SnpTable
+import org.bdgenomics.adam.projections.{ Projection, AlignmentRecordField }
 import org.bdgenomics.adam.rdd.ADAMContext._
 import org.bdgenomics.adam.rdd.ADAMSaveAnyArgs
 import org.bdgenomics.adam.rdd.read.AlignmentRecordContext._
@@ -53,13 +54,22 @@ class Query1(protected val args: Query1Args) extends ADAMSparkCommand[Query1Args
   val companion = Query1
 
   def run(sc: SparkContext, job: Job) {
-    val counts1 = sc.loadAlignments(args.inputPath1)
+    val projection = Projection(AlignmentRecordField.sequence)
+    val reads1 = sc.loadAlignments(args.inputPath1, projection = Some(projection))
+      .cache()
+    println("have " + reads1.count() + " reads")
+
+    val counts1 = reads1
       .adamCountKmers(20)
       .cache()
     val total1 = counts1.count
     val unique1 = counts1.map(kv => kv._2).reduce(_ + _)
 
-    val counts2 = sc.loadAlignments(args.inputPath2)
+    val reads2 = sc.loadAlignments(args.inputPath2, projection = Some(projection))
+      .cache()
+    println("have " + reads2.count() + " reads")
+
+    val counts2 = reads2
       .adamCountKmers(20)
       .cache()
     val total2 = counts2.count
