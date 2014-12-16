@@ -34,3 +34,26 @@ Counts the tag strings annotated to the reads of two datasets. Then,
 we measure the number of unique strings, as well as the total number of strings
 in each dataset, as well as the number of tag strings and the count of tag string occurrences
 that are common to _both_ datasets.
+
+Query 3
+=======
+
+Calculates the concordance of two sets of genotypes.
+
+Query 4
+=======
+
+Trains a _k_-means model on the _k_-mers in a set of reads with the _k_ for _k_-mers
+set to 20 and the number of cluster centroids set to 2.
+
+Query 5
+=======
+
+Trains a linear regression model on the GC bias distribution of a set of _k_-mers,
+using the dinucleotide composition and _k_-mer multiplicites.
+
+Query 6
+=======
+
+Applies a Yates correction to reads to correct the base quality scores of the reads,
+using a table of SNP evidence.
