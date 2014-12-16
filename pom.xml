@@ -29,6 +29,7 @@
     <module>adam-query-1</module>
     <module>adam-query-2</module>
     <module>adam-query-3</module>
+    <module>adam-query-4</module>
   </modules>
 
   <licenses>
@@ -223,6 +224,12 @@
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-core_${scala.version.prefix}</artifactId>
+        <version>${spark.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-mllib_${scala.version.prefix}</artifactId>
         <version>${spark.version}</version>
         <scope>provided</scope>
       </dependency>
