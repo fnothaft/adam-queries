@@ -1,6 +1,8 @@
 adam-queries
 ============
 
+[![Build Status](https://travis-ci.org/fnothaft/adam-queries.svg?branch=master)](https://travis-ci.org/fnothaft/adam-queries)
+
 Small queries to run on ADAM for GDA.
 
 Both queries take two arguments; these are the two input datasets to run on. For this example,
